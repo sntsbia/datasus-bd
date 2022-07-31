@@ -36,7 +36,7 @@ spring:
       enabled: false
   liquibase:
     # Remove 'faker' if you do not want the sample data to be loaded automatically
-    contexts: dev, faker
+    contexts: dev #, faker
     url: jdbc:h2:mem:datasus_bd;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
   mail:
     host: localhost
