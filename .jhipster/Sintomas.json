@@ -1,0 +1,28 @@
+{
+  "applications": "*",
+  "changelogDate": "20220731210428",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "sintomas",
+  "fields": [
+    {
+      "fieldName": "descricaoSintoma",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Sintomas",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "teste",
+      "otherEntityRelationshipName": "sintomas",
+      "ownerSide": false,
+      "relationshipName": "teste",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}

@@ -1,0 +1,55 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="teste">
+      <h2 data-cy="testeDetailsHeading"><span jhiTranslate="datasusBdApp.teste.detail.title">Teste</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ teste.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="datasusBdApp.teste.dataTeste">Data Teste</span></dt>
+        <dd>
+          <span>{{ teste.dataTeste | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="datasusBdApp.teste.resultado">Resultado</span></dt>
+        <dd>
+          <span>{{ teste.resultado }}</span>
+        </dd>
+        <dt><span jhiTranslate="datasusBdApp.teste.pessoa">Pessoa</span></dt>
+        <dd>
+          <div *ngIf="teste.pessoa">
+            <a [routerLink]="['/pessoa', teste.pessoa?.id, 'view']">{{ teste.pessoa?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="datasusBdApp.teste.municipio">Municipio</span></dt>
+        <dd>
+          <div *ngIf="teste.municipio">
+            <a [routerLink]="['/municipio', teste.municipio?.id, 'view']">{{ teste.municipio?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="datasusBdApp.teste.sintomas">Sintomas</span></dt>
+        <dd>
+          <span *ngFor="let sintomas of teste.sintomas; let last = last">
+            <a [routerLink]="['/sintomas', sintomas?.id, 'view']">{{ sintomas.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/teste', teste.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

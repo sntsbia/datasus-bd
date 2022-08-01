@@ -1,0 +1,84 @@
+<div>
+  <h2 id="page-heading" data-cy="TomaHeading">
+    <span jhiTranslate="datasusBdApp.toma.home.title">Tomas</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="datasusBdApp.toma.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-toma"
+        [routerLink]="['/toma/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="datasusBdApp.toma.home.createLabel"> Create a new Toma </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="tomas?.length === 0">
+    <span jhiTranslate="datasusBdApp.toma.home.notFound">No tomas found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="tomas && tomas.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="datasusBdApp.toma.data">Data</span></th>
+          <th scope="col"><span jhiTranslate="datasusBdApp.toma.lote">Lote</span></th>
+          <th scope="col"><span jhiTranslate="datasusBdApp.toma.dose">Dose</span></th>
+          <th scope="col"><span jhiTranslate="datasusBdApp.toma.vacina">Vacina</span></th>
+          <th scope="col"><span jhiTranslate="datasusBdApp.toma.pessoa">Pessoa</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let toma of tomas; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/toma', toma.id, 'view']">{{ toma.id }}</a>
+          </td>
+          <td>{{ toma.data | formatMediumDate }}</td>
+          <td>{{ toma.lote }}</td>
+          <td>{{ toma.dose }}</td>
+          <td>
+            <div *ngIf="toma.vacina">
+              <a [routerLink]="['/vacina', toma.vacina?.id, 'view']">{{ toma.vacina?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="toma.pessoa">
+              <a [routerLink]="['/pessoa', toma.pessoa?.id, 'view']">{{ toma.pessoa?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/toma', toma.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/toma', toma.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(toma)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

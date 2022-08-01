@@ -1,0 +1,28 @@
+{
+  "applications": "*",
+  "changelogDate": "20220731210423",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "mora",
+  "fields": [],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Mora",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "pessoa",
+      "otherEntityRelationshipName": "mora",
+      "relationshipName": "pessoa",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "municipio",
+      "otherEntityRelationshipName": "mora",
+      "relationshipName": "municipio",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

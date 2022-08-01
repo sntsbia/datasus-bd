@@ -1,0 +1,84 @@
+<div>
+  <h2 id="page-heading" data-cy="MunicipioHeading">
+    <span jhiTranslate="datasusBdApp.municipio.home.title">Municipios</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="datasusBdApp.municipio.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-municipio"
+        [routerLink]="['/municipio/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="datasusBdApp.municipio.home.createLabel"> Create a new Municipio </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="municipios?.length === 0">
+    <span jhiTranslate="datasusBdApp.municipio.home.notFound">No municipios found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="municipios && municipios.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="datasusBdApp.municipio.municipioNome">Municipio Nome</span></th>
+          <th scope="col"><span jhiTranslate="datasusBdApp.municipio.uf">Uf</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let municipio of municipios; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/municipio', municipio.id, 'view']">{{ municipio.id }}</a>
+          </td>
+          <td>{{ municipio.municipioNome }}</td>
+          <td>
+            <div *ngIf="municipio.uf">
+              <a [routerLink]="['/uf', municipio.uf?.id, 'view']">{{ municipio.uf?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/municipio', municipio.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/municipio', municipio.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(municipio)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

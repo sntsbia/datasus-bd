@@ -1,0 +1,25 @@
+{
+  "datasusBdApp": {
+    "condicoes": {
+      "home": {
+        "title": "Condicoes",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Condicoes",
+        "createOrEditLabel": "Criar ou editar Condicoes",
+        "notFound": "Nenhum Condicoes encontrado"
+      },
+      "created": "Um novo Condicoes foi criado com o identificador {{ param }}",
+      "updated": "Um Condicoes foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Condicoes foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Condicoes {{ id }}?"
+      },
+      "detail": {
+        "title": "Condicoes"
+      },
+      "id": "ID",
+      "condicao": "Condicao",
+      "pessoa": "Pessoa"
+    }
+  }
+}

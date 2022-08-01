@@ -1,0 +1,41 @@
+{
+  "applications": "*",
+  "changelogDate": "20220731210429",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "toma",
+  "fields": [
+    {
+      "fieldName": "data",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "lote",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dose",
+      "fieldType": "Long"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Toma",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "vacina",
+      "otherEntityRelationshipName": "toma",
+      "relationshipName": "vacina",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "pessoa",
+      "otherEntityRelationshipName": "toma",
+      "relationshipName": "pessoa",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

@@ -1,0 +1,26 @@
+{
+  "datasusBdApp": {
+    "uf": {
+      "home": {
+        "title": "Ufs",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Uf",
+        "createOrEditLabel": "Create or edit a Uf",
+        "notFound": "No Ufs found"
+      },
+      "created": "A new Uf is created with identifier {{ param }}",
+      "updated": "A Uf is updated with identifier {{ param }}",
+      "deleted": "A Uf is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Uf {{ id }}?"
+      },
+      "detail": {
+        "title": "Uf"
+      },
+      "id": "ID",
+      "codigoIbge": "Codigo Ibge",
+      "estado": "Estado",
+      "bandeira": "Bandeira"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "applications": "*",
+  "changelogDate": "20220731210425",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "municipio",
+  "fields": [
+    {
+      "fieldName": "municipioNome",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "javadoc": "not an ignored comment",
+  "jpaMetamodelFiltering": false,
+  "name": "Municipio",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "uf",
+      "otherEntityRelationshipName": "municipio",
+      "relationshipName": "uf",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

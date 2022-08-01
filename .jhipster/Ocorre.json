@@ -1,0 +1,28 @@
+{
+  "applications": "*",
+  "changelogDate": "20220731210430",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "ocorre",
+  "fields": [],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Ocorre",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "teste",
+      "otherEntityRelationshipName": "ocorre",
+      "relationshipName": "teste",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "municipio",
+      "otherEntityRelationshipName": "ocorre",
+      "relationshipName": "municipio",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

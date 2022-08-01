@@ -1,0 +1,43 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="uf">
+      <h2 data-cy="ufDetailsHeading"><span jhiTranslate="datasusBdApp.uf.detail.title">Uf</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ uf.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="datasusBdApp.uf.codigoIbge">Codigo Ibge</span></dt>
+        <dd>
+          <span>{{ uf.codigoIbge }}</span>
+        </dd>
+        <dt><span jhiTranslate="datasusBdApp.uf.estado">Estado</span></dt>
+        <dd>
+          <span>{{ uf.estado }}</span>
+        </dd>
+        <dt><span jhiTranslate="datasusBdApp.uf.bandeira">Bandeira</span></dt>
+        <dd>
+          <div *ngIf="uf.bandeira">
+            <a (click)="openFile(uf.bandeira, uf.bandeiraContentType)" jhiTranslate="entity.action.open">open</a>
+            {{ uf.bandeiraContentType }}, {{ byteSize(uf.bandeira) }}
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/uf', uf.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

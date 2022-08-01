@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="ocorre">
+      <h2 data-cy="ocorreDetailsHeading"><span jhiTranslate="datasusBdApp.ocorre.detail.title">Ocorre</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ ocorre.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="datasusBdApp.ocorre.teste">Teste</span></dt>
+        <dd>
+          <div *ngIf="ocorre.teste">
+            <a [routerLink]="['/teste', ocorre.teste?.id, 'view']">{{ ocorre.teste?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="datasusBdApp.ocorre.municipio">Municipio</span></dt>
+        <dd>
+          <div *ngIf="ocorre.municipio">
+            <a [routerLink]="['/municipio', ocorre.municipio?.id, 'view']">{{ ocorre.municipio?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/ocorre', ocorre.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

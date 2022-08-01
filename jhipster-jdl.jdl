@@ -1,0 +1,91 @@
+
+entity Pessoa {
+    sexo Sexo, 
+    idade Long
+}
+
+entity Condicoes {
+	condicao String,
+}
+
+entity Mora {
+
+}
+
+entity Vacina {
+    fabricante String,
+    nomeVacina String
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity Municipio {
+	municipioNome String
+}
+
+entity Teste {
+    dataTeste LocalDate,
+    resultado Long
+}
+
+/**
+ * Task entity.
+ * @author The JHipster team.
+ */
+entity Uf {
+	codigoIbge Long,
+    estado String,
+    bandeira Blob
+}
+
+entity Sintomas {
+    descricaoSintoma String
+}
+
+entity Toma {
+    data LocalDate,
+    lote String,
+    dose Long
+}
+
+entity Ocorre {
+
+}
+
+enum Sexo {
+	F("Feminino"), M("Masculino") 
+}
+
+relationship ManyToOne{
+	Teste{pessoa} to Pessoa,
+    Teste{municipio} to Municipio
+}
+
+relationship ManyToMany {
+	 Teste{sintomas} to Sintomas{teste}
+}
+
+relationship ManyToMany{
+    Pessoa{condicoes} to Condicoes{pessoa}
+}
+
+relationship ManyToOne{
+	Mora{pessoa} to Pessoa,
+    Mora{municipio} to Municipio
+}
+
+relationship ManyToOne{
+	Ocorre{teste} to Teste,
+    Ocorre{municipio} to Municipio
+}
+
+relationship ManyToOne {
+	Municipio{uf} to Uf
+}
+
+relationship ManyToOne {
+	Toma{vacina} to Vacina,
+    Toma{pessoa} to Pessoa
+}
+
+

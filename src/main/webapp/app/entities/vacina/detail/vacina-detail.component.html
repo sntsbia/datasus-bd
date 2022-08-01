@@ -1,0 +1,36 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="vacina">
+      <h2 data-cy="vacinaDetailsHeading"><span jhiTranslate="datasusBdApp.vacina.detail.title">Vacina</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ vacina.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="datasusBdApp.vacina.fabricante">Fabricante</span></dt>
+        <dd>
+          <span>{{ vacina.fabricante }}</span>
+        </dd>
+        <dt><span jhiTranslate="datasusBdApp.vacina.nomeVacina">Nome Vacina</span></dt>
+        <dd>
+          <span>{{ vacina.nomeVacina }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/vacina', vacina.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

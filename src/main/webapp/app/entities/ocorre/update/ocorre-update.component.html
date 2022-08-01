@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-ocorre-heading" data-cy="OcorreCreateUpdateHeading" jhiTranslate="datasusBdApp.ocorre.home.createOrEditLabel">
+        Create or edit a Ocorre
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="datasusBdApp.ocorre.teste" for="field_teste">Teste</label>
+          <select class="form-control" id="field_teste" data-cy="teste" name="teste" formControlName="teste">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="testeOption.id === editForm.get('teste')!.value?.id ? editForm.get('teste')!.value : testeOption"
+              *ngFor="let testeOption of testesSharedCollection; trackBy: trackTesteById"
+            >
+              {{ testeOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="datasusBdApp.ocorre.municipio" for="field_municipio">Municipio</label>
+          <select class="form-control" id="field_municipio" data-cy="municipio" name="municipio" formControlName="municipio">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="municipioOption.id === editForm.get('municipio')!.value?.id ? editForm.get('municipio')!.value : municipioOption"
+              *ngFor="let municipioOption of municipiosSharedCollection; trackBy: trackMunicipioById"
+            >
+              {{ municipioOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

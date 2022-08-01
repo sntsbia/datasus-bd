@@ -1,0 +1,59 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-pessoa-heading" data-cy="PessoaCreateUpdateHeading" jhiTranslate="datasusBdApp.pessoa.home.createOrEditLabel">
+        Create or edit a Pessoa
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="datasusBdApp.pessoa.sexo" for="field_sexo">Sexo</label>
+          <select class="form-control" name="sexo" formControlName="sexo" id="field_sexo" data-cy="sexo">
+            <option [ngValue]="null">{{ 'datasusBdApp.Sexo.null' | translate }}</option>
+            <option *ngFor="let sexo of sexoValues" [value]="sexo">{{ 'datasusBdApp.Sexo.' + sexo | translate }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="datasusBdApp.pessoa.idade" for="field_idade">Idade</label>
+          <input type="number" class="form-control" name="idade" id="field_idade" data-cy="idade" formControlName="idade" />
+        </div>
+
+        <div class="row mb-3">
+          <label jhiTranslate="datasusBdApp.pessoa.condicoes" for="field_condicoes">Condicoes</label>
+          <select class="form-control" id="field_condicoes" data-cy="condicoes" multiple name="condicoes" formControlName="condicoes">
+            <option
+              [ngValue]="getSelectedCondicoes(condicoesOption, editForm.get('condicoes')!.value)"
+              *ngFor="let condicoesOption of condicoesSharedCollection; trackBy: trackCondicoesById"
+            >
+              {{ condicoesOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

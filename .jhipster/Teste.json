@@ -1,0 +1,44 @@
+{
+  "applications": "*",
+  "changelogDate": "20220731210426",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "teste",
+  "fields": [
+    {
+      "fieldName": "dataTeste",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "resultado",
+      "fieldType": "Long"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Teste",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "pessoa",
+      "otherEntityRelationshipName": "teste",
+      "relationshipName": "pessoa",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "municipio",
+      "otherEntityRelationshipName": "teste",
+      "relationshipName": "municipio",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "sintomas",
+      "otherEntityRelationshipName": "teste",
+      "ownerSide": true,
+      "relationshipName": "sintomas",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}

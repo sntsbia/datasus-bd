@@ -1,0 +1,28 @@
+{
+  "applications": "*",
+  "changelogDate": "20220731210422",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "condicoes",
+  "fields": [
+    {
+      "fieldName": "condicao",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Condicoes",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "pessoa",
+      "otherEntityRelationshipName": "condicoes",
+      "ownerSide": false,
+      "relationshipName": "pessoa",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}

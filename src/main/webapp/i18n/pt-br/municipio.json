@@ -1,0 +1,25 @@
+{
+  "datasusBdApp": {
+    "municipio": {
+      "home": {
+        "title": "Municipios",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Municipio",
+        "createOrEditLabel": "Criar ou editar Municipio",
+        "notFound": "Nenhum Municipio encontrado"
+      },
+      "created": "Um novo Municipio foi criado com o identificador {{ param }}",
+      "updated": "Um Municipio foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Municipio foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Municipio {{ id }}?"
+      },
+      "detail": {
+        "title": "Municipio"
+      },
+      "id": "ID",
+      "municipioNome": "Municipio Nome",
+      "uf": "Uf"
+    }
+  }
+}

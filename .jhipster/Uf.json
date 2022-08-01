@@ -1,0 +1,30 @@
+{
+  "applications": "*",
+  "changelogDate": "20220731210427",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "uf",
+  "fields": [
+    {
+      "fieldName": "codigoIbge",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "estado",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "bandeira",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any"
+    }
+  ],
+  "fluentMethods": true,
+  "javadoc": "Task entity.\\n@author The JHipster team.",
+  "jpaMetamodelFiltering": false,
+  "name": "Uf",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

@@ -1,0 +1,25 @@
+{
+  "datasusBdApp": {
+    "mora": {
+      "home": {
+        "title": "Moras",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Mora",
+        "createOrEditLabel": "Create or edit a Mora",
+        "notFound": "No Moras found"
+      },
+      "created": "A new Mora is created with identifier {{ param }}",
+      "updated": "A Mora is updated with identifier {{ param }}",
+      "deleted": "A Mora is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Mora {{ id }}?"
+      },
+      "detail": {
+        "title": "Mora"
+      },
+      "id": "ID",
+      "pessoa": "Pessoa",
+      "municipio": "Municipio"
+    }
+  }
+}

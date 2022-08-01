@@ -1,0 +1,78 @@
+<div>
+  <h2 id="page-heading" data-cy="MoraHeading">
+    <span jhiTranslate="datasusBdApp.mora.home.title">Moras</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="datasusBdApp.mora.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-mora"
+        [routerLink]="['/mora/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="datasusBdApp.mora.home.createLabel"> Create a new Mora </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="moras?.length === 0">
+    <span jhiTranslate="datasusBdApp.mora.home.notFound">No moras found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="moras && moras.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="datasusBdApp.mora.pessoa">Pessoa</span></th>
+          <th scope="col"><span jhiTranslate="datasusBdApp.mora.municipio">Municipio</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let mora of moras; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/mora', mora.id, 'view']">{{ mora.id }}</a>
+          </td>
+          <td>
+            <div *ngIf="mora.pessoa">
+              <a [routerLink]="['/pessoa', mora.pessoa?.id, 'view']">{{ mora.pessoa?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="mora.municipio">
+              <a [routerLink]="['/municipio', mora.municipio?.id, 'view']">{{ mora.municipio?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/mora', mora.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/mora', mora.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(mora)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

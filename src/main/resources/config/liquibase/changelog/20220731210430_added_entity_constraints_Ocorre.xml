@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity Ocorre.
+    -->
+    <changeSet id="20220731210430-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="teste_id"
+                                 baseTableName="ocorre"
+                                 constraintName="fk_ocorre__teste_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="teste"/>
+
+        <addForeignKeyConstraint baseColumnNames="municipio_id"
+                                 baseTableName="ocorre"
+                                 constraintName="fk_ocorre__municipio_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="municipio"/>
+    </changeSet>
+</databaseChangeLog>

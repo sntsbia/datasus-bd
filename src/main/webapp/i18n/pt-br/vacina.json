@@ -1,0 +1,25 @@
+{
+  "datasusBdApp": {
+    "vacina": {
+      "home": {
+        "title": "Vacinas",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Vacina",
+        "createOrEditLabel": "Criar ou editar Vacina",
+        "notFound": "Nenhum Vacina encontrado"
+      },
+      "created": "Um novo Vacina foi criado com o identificador {{ param }}",
+      "updated": "Um Vacina foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Vacina foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Vacina {{ id }}?"
+      },
+      "detail": {
+        "title": "Vacina"
+      },
+      "id": "ID",
+      "fabricante": "Fabricante",
+      "nomeVacina": "Nome Vacina"
+    }
+  }
+}
