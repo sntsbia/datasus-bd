@@ -6,20 +6,20 @@ USE bd_Open_DataSus_BD1;
 
 CREATE TABLE Pessoa (
     ID INT PRIMARY KEY,
-    Sexo char('M','F'),
-    Idade Número(3),
+    Sexo char(1),
+    Idade INT(3),
     fk_Condicoes_Condicoes_PK INT
 );
 
 CREATE TABLE Vacina (
-    Fabricante VARCHAR,
+    Fabricante VARCHAR(256),
     ID_vacina INT PRIMARY KEY,
-    nome_vacina VARCHAR
+    nome_vacina VARCHAR(256)
 );
 
 CREATE TABLE Municipio (
     id_Endereco INT PRIMARY KEY,
-    Municipio VARCHAR,
+    Municipio VARCHAR(256),
     fk_UF_UF_PK INT
 );
 
@@ -33,26 +33,26 @@ CREATE TABLE Teste (
 
 CREATE TABLE Condicoes (
     Condicoes_PK INT NOT NULL PRIMARY KEY,
-    Condicoes VARCHAR
+    Condicoes VARCHAR(256)
 );
 
 CREATE TABLE UF (
     UF_PK INT NOT NULL PRIMARY KEY,
-    Codigo IBGE INT,
-    Estado VARCHAR,
+    Codigo_IBGE INT,
+    Estado VARCHAR(256),
     Bandeira BLOB
 );
 
 CREATE TABLE Sintomas (
     Sintomas_PK INT NOT NULL PRIMARY KEY,
-    Sintomas VARCHAR
+    Sintomas VARCHAR(256)
 );
 
 CREATE TABLE Toma (
     fk_Vacina_ID_vacina INT,
     fk_Pessoa_ID INT,
     Data DATE,
-    Lote VARCHAR,
+    Lote VARCHAR(256),
     Dose INT
 );
 
