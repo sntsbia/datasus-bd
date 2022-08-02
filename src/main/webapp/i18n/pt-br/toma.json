@@ -1,0 +1,28 @@
+{
+  "datasusBdApp": {
+    "toma": {
+      "home": {
+        "title": "Tomas",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Toma",
+        "createOrEditLabel": "Criar ou editar Toma",
+        "notFound": "Nenhum Toma encontrado"
+      },
+      "created": "Um novo Toma foi criado com o identificador {{ param }}",
+      "updated": "Um Toma foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Toma foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Toma {{ id }}?"
+      },
+      "detail": {
+        "title": "Toma"
+      },
+      "id": "ID",
+      "data": "Data",
+      "lote": "Lote",
+      "dose": "Dose",
+      "fkIdVacina": "Fk Id Vacina",
+      "fkIdPessoa": "Fk Id Pessoa"
+    }
+  }
+}

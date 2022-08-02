@@ -1,0 +1,25 @@
+{
+  "datasusBdApp": {
+    "ocorre": {
+      "home": {
+        "title": "Ocorres",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Ocorre",
+        "createOrEditLabel": "Create or edit a Ocorre",
+        "notFound": "No Ocorres found"
+      },
+      "created": "A new Ocorre is created with identifier {{ param }}",
+      "updated": "A Ocorre is updated with identifier {{ param }}",
+      "deleted": "A Ocorre is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Ocorre {{ id }}?"
+      },
+      "detail": {
+        "title": "Ocorre"
+      },
+      "id": "ID",
+      "fkIdTeste": "Fk Id Teste",
+      "fkIdMunicipio": "Fk Id Municipio"
+    }
+  }
+}

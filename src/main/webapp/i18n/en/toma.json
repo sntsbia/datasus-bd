@@ -1,0 +1,28 @@
+{
+  "datasusBdApp": {
+    "toma": {
+      "home": {
+        "title": "Tomas",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Toma",
+        "createOrEditLabel": "Create or edit a Toma",
+        "notFound": "No Tomas found"
+      },
+      "created": "A new Toma is created with identifier {{ param }}",
+      "updated": "A Toma is updated with identifier {{ param }}",
+      "deleted": "A Toma is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Toma {{ id }}?"
+      },
+      "detail": {
+        "title": "Toma"
+      },
+      "id": "ID",
+      "data": "Data",
+      "lote": "Lote",
+      "dose": "Dose",
+      "fkIdVacina": "Fk Id Vacina",
+      "fkIdPessoa": "Fk Id Pessoa"
+    }
+  }
+}

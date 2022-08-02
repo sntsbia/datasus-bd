@@ -1,0 +1,39 @@
+{
+  "applications": "*",
+  "changelogDate": "20220802223825",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "pessoa",
+  "fields": [
+    {
+      "fieldName": "idPessoa",
+      "fieldType": "Long",
+      "options": {
+        "id": true
+      }
+    },
+    {
+      "fieldName": "sexo",
+      "fieldType": "Sexo",
+      "fieldValues": "F (Feminino),M (Masculino)"
+    },
+    {
+      "fieldName": "idade",
+      "fieldType": "Long"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Pessoa",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "condicao",
+      "otherEntityRelationshipName": "fkIdPessoa",
+      "relationshipName": "condicao",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

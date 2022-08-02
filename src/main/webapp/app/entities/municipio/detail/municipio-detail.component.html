@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="municipio">
+      <h2 data-cy="municipioDetailsHeading"><span jhiTranslate="datasusBdApp.municipio.detail.title">Municipio</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="datasusBdApp.municipio.idMunicipio">Id Municipio</span></dt>
+        <dd>
+          <span>{{ municipio.idMunicipio }}</span>
+        </dd>
+        <dt><span jhiTranslate="datasusBdApp.municipio.municipio">Municipio</span></dt>
+        <dd>
+          <span>{{ municipio.municipio }}</span>
+        </dd>
+        <dt><span jhiTranslate="datasusBdApp.municipio.fkIdUf">Fk Id Uf</span></dt>
+        <dd>
+          <div *ngIf="municipio.fkIdUf">
+            <a [routerLink]="['/uf', municipio.fkIdUf?.idUf, 'view']">{{ municipio.fkIdUf?.idUf }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/municipio', municipio.idMunicipio, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

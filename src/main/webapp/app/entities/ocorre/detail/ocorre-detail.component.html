@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="ocorre">
+      <h2 data-cy="ocorreDetailsHeading"><span jhiTranslate="datasusBdApp.ocorre.detail.title">Ocorre</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ ocorre.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="datasusBdApp.ocorre.fkIdTeste">Fk Id Teste</span></dt>
+        <dd>
+          <div *ngIf="ocorre.fkIdTeste">
+            <a [routerLink]="['/teste', ocorre.fkIdTeste?.idTeste, 'view']">{{ ocorre.fkIdTeste?.idTeste }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="datasusBdApp.ocorre.fkIdMunicipio">Fk Id Municipio</span></dt>
+        <dd>
+          <div *ngIf="ocorre.fkIdMunicipio">
+            <a [routerLink]="['/municipio', ocorre.fkIdMunicipio?.idMunicipio, 'view']">{{ ocorre.fkIdMunicipio?.idMunicipio }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/ocorre', ocorre.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

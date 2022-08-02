@@ -1,0 +1,31 @@
+{
+  "applications": "*",
+  "changelogDate": "20220802223827",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "vacina",
+  "fields": [
+    {
+      "fieldName": "idVacina",
+      "fieldType": "Long",
+      "options": {
+        "id": true
+      }
+    },
+    {
+      "fieldName": "fabricante",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nomeVacina",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Vacina",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

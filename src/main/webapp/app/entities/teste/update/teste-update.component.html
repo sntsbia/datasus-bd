@@ -1,0 +1,94 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-teste-heading" data-cy="TesteCreateUpdateHeading" jhiTranslate="datasusBdApp.teste.home.createOrEditLabel">
+        Create or edit a Teste
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('idTeste')!.value == null">
+          <label class="form-label" jhiTranslate="datasusBdApp.teste.idTeste" for="field_idTeste">Id Teste</label>
+          <input
+            type="number"
+            class="form-control"
+            name="idTeste"
+            id="field_idTeste"
+            data-cy="idTeste"
+            formControlName="idTeste"
+            [readonly]="true"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="datasusBdApp.teste.dataTeste" for="field_dataTeste">Data Teste</label>
+          <div class="input-group">
+            <input
+              id="field_dataTeste"
+              data-cy="dataTeste"
+              type="text"
+              class="form-control"
+              name="dataTeste"
+              ngbDatepicker
+              #dataTesteDp="ngbDatepicker"
+              formControlName="dataTeste"
+            />
+            <button type="button" class="btn btn-secondary" (click)="dataTesteDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="datasusBdApp.teste.resultado" for="field_resultado">Resultado</label>
+          <input type="number" class="form-control" name="resultado" id="field_resultado" data-cy="resultado" formControlName="resultado" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="datasusBdApp.teste.fkIdTeste" for="field_fkIdTeste">Fk Id Teste</label>
+          <select class="form-control" id="field_fkIdTeste" data-cy="fkIdTeste" name="fkIdTeste" formControlName="fkIdTeste">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                pessoaOption.idPessoa === editForm.get('fkIdTeste')!.value?.idPessoa ? editForm.get('fkIdTeste')!.value : pessoaOption
+              "
+              *ngFor="let pessoaOption of pessoasSharedCollection; trackBy: trackPessoaByIdPessoa"
+            >
+              {{ pessoaOption.idPessoa }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="datasusBdApp.teste.sintomas" for="field_sintomas">Sintomas</label>
+          <select class="form-control" id="field_sintomas" data-cy="sintomas" name="sintomas" formControlName="sintomas">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                sintomasOption.idSintomas === editForm.get('sintomas')!.value?.idSintomas ? editForm.get('sintomas')!.value : sintomasOption
+              "
+              *ngFor="let sintomasOption of sintomasSharedCollection; trackBy: trackSintomasByIdSintomas"
+            >
+              {{ sintomasOption.idSintomas }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

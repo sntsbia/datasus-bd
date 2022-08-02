@@ -7,6 +7,16 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
+        "pessoa": "Pessoa",
+        "condicao": "Condicao",
+        "vacina": "Vacina",
+        "municipio": "Municipio",
+        "teste": "Teste",
+        "uf": "Uf",
+        "sintomas": "Sintomas",
+        "toma": "Toma",
+        "ocorre": "Ocorre",
+        "mora": "Mora",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

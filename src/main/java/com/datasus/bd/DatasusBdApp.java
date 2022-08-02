@@ -1,13 +1,21 @@
 package com.datasus.bd;
 
 import com.datasus.bd.config.ApplicationProperties;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.Reader;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Optional;
 import javax.annotation.PostConstruct;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.ibatis.jdbc.ScriptRunner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -63,11 +71,23 @@ public class DatasusBdApp {
      *
      * @param args the command line arguments.
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException, FileNotFoundException {
         SpringApplication app = new SpringApplication(DatasusBdApp.class);
         DefaultProfileUtil.addDefaultProfile(app);
         Environment env = app.run(args).getEnvironment();
         logApplicationStartup(env);
+
+        DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+        //Getting the connection
+        String mysqlUrl = "jdbc:h2:mem:datasus_bd";
+        Connection con = DriverManager.getConnection(mysqlUrl, "datasus_bd", "");
+        System.out.println("Connection established......");
+        //Initialize the script runner
+        ScriptRunner sr = new ScriptRunner(con);
+        //Creating a reader object
+        Reader reader = new BufferedReader(new FileReader("brModelo/insert5.sql"));
+        //Running the script
+        sr.runScript(reader);
     }
 
     private static void logApplicationStartup(Environment env) {

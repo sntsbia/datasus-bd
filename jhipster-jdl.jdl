@@ -1,0 +1,105 @@
+
+entity Pessoa {
+	@Id idPessoa Long,
+    sexo Sexo, 
+    idade Long
+}
+
+entity Condicao {
+	@Id idCondicao Long,
+	condicao String
+}
+
+entity Vacina {
+	@Id idVacina Long,
+    fabricante String,
+    nomeVacina String
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity Municipio {
+	@Id idMunicipio Long,
+	municipio String
+}
+
+entity Teste {
+	@Id idTeste Long,
+    dataTeste LocalDate,
+    resultado Long
+}
+
+entity Uf {
+	@Id idUf Long,
+	codigoIbge Long,
+    estado String,
+    bandeira Blob
+}
+
+entity Sintomas {
+	@Id idSintomas Long,
+    sintomas String
+}
+
+entity Toma {
+    data LocalDate,
+    lote String,
+    dose Long
+}
+
+entity Ocorre {
+
+}
+
+entity Mora {
+
+}
+
+enum Sexo {
+	F("Feminino"), M("Masculino") 
+}
+
+relationship OneToMany {
+	Condicao{fkIdPessoa} to Pessoa
+}
+
+relationship ManyToOne {
+	Municipio{fkIdUf} to Uf
+}
+
+relationship ManyToOne {
+	Teste{fkIdTeste} to Pessoa
+}
+
+relationship OneToMany {
+	Sintomas{fkIdTeste} to Teste
+}
+relationship ManyToOne {
+	@Id Toma{fkIdVacina} to Vacina,
+    @Id Toma{fkIdPessoa} to Pessoa
+}
+
+relationship ManyToOne{
+	@Id Mora{fkIdPessoa} to Pessoa,
+    @Id Mora{fkIdMunicipio} to Municipio
+}
+relationship ManyToOne{
+	@Id Ocorre{fkIdTeste} to Teste,
+    @Id Ocorre{fkIdMunicipio} to Municipio
+}
+
+
+
+
+
+paginate Condicao with pagination
+paginate Sintomas with pagination
+paginate Teste with pagination
+paginate Toma with pagination
+paginate Pessoa with pagination
+paginate Vacina with pagination
+paginate Mora with pagination
+paginate Uf with pagination
+paginate Municipio with pagination
+paginate Ocorre with pagination
+

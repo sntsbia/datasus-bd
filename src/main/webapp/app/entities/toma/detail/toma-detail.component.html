@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="toma">
+      <h2 data-cy="tomaDetailsHeading"><span jhiTranslate="datasusBdApp.toma.detail.title">Toma</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ toma.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="datasusBdApp.toma.data">Data</span></dt>
+        <dd>
+          <span>{{ toma.data | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="datasusBdApp.toma.lote">Lote</span></dt>
+        <dd>
+          <span>{{ toma.lote }}</span>
+        </dd>
+        <dt><span jhiTranslate="datasusBdApp.toma.dose">Dose</span></dt>
+        <dd>
+          <span>{{ toma.dose }}</span>
+        </dd>
+        <dt><span jhiTranslate="datasusBdApp.toma.fkIdVacina">Fk Id Vacina</span></dt>
+        <dd>
+          <div *ngIf="toma.fkIdVacina">
+            <a [routerLink]="['/vacina', toma.fkIdVacina?.idVacina, 'view']">{{ toma.fkIdVacina?.idVacina }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="datasusBdApp.toma.fkIdPessoa">Fk Id Pessoa</span></dt>
+        <dd>
+          <div *ngIf="toma.fkIdPessoa">
+            <a [routerLink]="['/pessoa', toma.fkIdPessoa?.idPessoa, 'view']">{{ toma.fkIdPessoa?.idPessoa }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/toma', toma.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

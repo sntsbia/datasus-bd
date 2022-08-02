@@ -1,0 +1,25 @@
+{
+  "datasusBdApp": {
+    "sintomas": {
+      "home": {
+        "title": "Sintomas",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Sintomas",
+        "createOrEditLabel": "Criar ou editar Sintomas",
+        "notFound": "Nenhum Sintomas encontrado"
+      },
+      "created": "Um novo Sintomas foi criado com o identificador {{ param }}",
+      "updated": "Um Sintomas foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Sintomas foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Sintomas {{ id }}?"
+      },
+      "detail": {
+        "title": "Sintomas"
+      },
+      "idSintomas": "Id Sintomas",
+      "sintomas": "Sintomas",
+      "fkIdTeste": "Fk Id Teste"
+    }
+  }
+}

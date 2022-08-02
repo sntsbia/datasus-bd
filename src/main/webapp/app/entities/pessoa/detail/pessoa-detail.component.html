@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="pessoa">
+      <h2 data-cy="pessoaDetailsHeading"><span jhiTranslate="datasusBdApp.pessoa.detail.title">Pessoa</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="datasusBdApp.pessoa.idPessoa">Id Pessoa</span></dt>
+        <dd>
+          <span>{{ pessoa.idPessoa }}</span>
+        </dd>
+        <dt><span jhiTranslate="datasusBdApp.pessoa.sexo">Sexo</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'datasusBdApp.Sexo.' + pessoa.sexo }}">{{ pessoa.sexo }}</span>
+        </dd>
+        <dt><span jhiTranslate="datasusBdApp.pessoa.idade">Idade</span></dt>
+        <dd>
+          <span>{{ pessoa.idade }}</span>
+        </dd>
+        <dt><span jhiTranslate="datasusBdApp.pessoa.condicao">Condicao</span></dt>
+        <dd>
+          <div *ngIf="pessoa.condicao">
+            <a [routerLink]="['/condicao', pessoa.condicao?.idCondicao, 'view']">{{ pessoa.condicao?.idCondicao }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/pessoa', pessoa.idPessoa, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

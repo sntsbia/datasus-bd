@@ -1,0 +1,32 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="condicao">
+      <h2 data-cy="condicaoDetailsHeading"><span jhiTranslate="datasusBdApp.condicao.detail.title">Condicao</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="datasusBdApp.condicao.idCondicao">Id Condicao</span></dt>
+        <dd>
+          <span>{{ condicao.idCondicao }}</span>
+        </dd>
+        <dt><span jhiTranslate="datasusBdApp.condicao.condicao">Condicao</span></dt>
+        <dd>
+          <span>{{ condicao.condicao }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/condicao', condicao.idCondicao, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+{
+  "datasusBdApp": {
+    "ocorre": {
+      "home": {
+        "title": "Ocorres",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Ocorre",
+        "createOrEditLabel": "Criar ou editar Ocorre",
+        "notFound": "Nenhum Ocorre encontrado"
+      },
+      "created": "Um novo Ocorre foi criado com o identificador {{ param }}",
+      "updated": "Um Ocorre foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Ocorre foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Ocorre {{ id }}?"
+      },
+      "detail": {
+        "title": "Ocorre"
+      },
+      "id": "ID",
+      "fkIdTeste": "Fk Id Teste",
+      "fkIdMunicipio": "Fk Id Municipio"
+    }
+  }
+}

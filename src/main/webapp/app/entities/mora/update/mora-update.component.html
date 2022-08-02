@@ -1,0 +1,72 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-mora-heading" data-cy="MoraCreateUpdateHeading" jhiTranslate="datasusBdApp.mora.home.createOrEditLabel">
+        Create or edit a Mora
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="datasusBdApp.mora.fkIdPessoa" for="field_fkIdPessoa">Fk Id Pessoa</label>
+          <select class="form-control" id="field_fkIdPessoa" data-cy="fkIdPessoa" name="fkIdPessoa" formControlName="fkIdPessoa">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                pessoaOption.idPessoa === editForm.get('fkIdPessoa')!.value?.idPessoa ? editForm.get('fkIdPessoa')!.value : pessoaOption
+              "
+              *ngFor="let pessoaOption of pessoasSharedCollection; trackBy: trackPessoaByIdPessoa"
+            >
+              {{ pessoaOption.idPessoa }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="datasusBdApp.mora.fkIdMunicipio" for="field_fkIdMunicipio">Fk Id Municipio</label>
+          <select
+            class="form-control"
+            id="field_fkIdMunicipio"
+            data-cy="fkIdMunicipio"
+            name="fkIdMunicipio"
+            formControlName="fkIdMunicipio"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                municipioOption.idMunicipio === editForm.get('fkIdMunicipio')!.value?.idMunicipio
+                  ? editForm.get('fkIdMunicipio')!.value
+                  : municipioOption
+              "
+              *ngFor="let municipioOption of municipiosSharedCollection; trackBy: trackMunicipioByIdMunicipio"
+            >
+              {{ municipioOption.idMunicipio }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

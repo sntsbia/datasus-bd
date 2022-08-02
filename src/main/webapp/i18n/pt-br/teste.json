@@ -1,0 +1,27 @@
+{
+  "datasusBdApp": {
+    "teste": {
+      "home": {
+        "title": "Testes",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Teste",
+        "createOrEditLabel": "Criar ou editar Teste",
+        "notFound": "Nenhum Teste encontrado"
+      },
+      "created": "Um novo Teste foi criado com o identificador {{ param }}",
+      "updated": "Um Teste foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Teste foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Teste {{ id }}?"
+      },
+      "detail": {
+        "title": "Teste"
+      },
+      "idTeste": "Id Teste",
+      "dataTeste": "Data Teste",
+      "resultado": "Resultado",
+      "fkIdTeste": "Fk Id Teste",
+      "sintomas": "Sintomas"
+    }
+  }
+}

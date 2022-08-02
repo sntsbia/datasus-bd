@@ -1,0 +1,25 @@
+{
+  "datasusBdApp": {
+    "sintomas": {
+      "home": {
+        "title": "Sintomas",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Sintomas",
+        "createOrEditLabel": "Create or edit a Sintomas",
+        "notFound": "No Sintomas found"
+      },
+      "created": "A new Sintomas is created with identifier {{ param }}",
+      "updated": "A Sintomas is updated with identifier {{ param }}",
+      "deleted": "A Sintomas is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Sintomas {{ id }}?"
+      },
+      "detail": {
+        "title": "Sintomas"
+      },
+      "idSintomas": "Id Sintomas",
+      "sintomas": "Sintomas",
+      "fkIdTeste": "Fk Id Teste"
+    }
+  }
+}

@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-municipio-heading" data-cy="MunicipioCreateUpdateHeading" jhiTranslate="datasusBdApp.municipio.home.createOrEditLabel">
+        Create or edit a Municipio
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('idMunicipio')!.value == null">
+          <label class="form-label" jhiTranslate="datasusBdApp.municipio.idMunicipio" for="field_idMunicipio">Id Municipio</label>
+          <input
+            type="number"
+            class="form-control"
+            name="idMunicipio"
+            id="field_idMunicipio"
+            data-cy="idMunicipio"
+            formControlName="idMunicipio"
+            [readonly]="true"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="datasusBdApp.municipio.municipio" for="field_municipio">Municipio</label>
+          <input type="text" class="form-control" name="municipio" id="field_municipio" data-cy="municipio" formControlName="municipio" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="datasusBdApp.municipio.fkIdUf" for="field_fkIdUf">Fk Id Uf</label>
+          <select class="form-control" id="field_fkIdUf" data-cy="fkIdUf" name="fkIdUf" formControlName="fkIdUf">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="ufOption.idUf === editForm.get('fkIdUf')!.value?.idUf ? editForm.get('fkIdUf')!.value : ufOption"
+              *ngFor="let ufOption of ufsSharedCollection; trackBy: trackUfByIdUf"
+            >
+              {{ ufOption.idUf }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="sintomas">
+      <h2 data-cy="sintomasDetailsHeading"><span jhiTranslate="datasusBdApp.sintomas.detail.title">Sintomas</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="datasusBdApp.sintomas.idSintomas">Id Sintomas</span></dt>
+        <dd>
+          <span>{{ sintomas.idSintomas }}</span>
+        </dd>
+        <dt><span jhiTranslate="datasusBdApp.sintomas.sintomas">Sintomas</span></dt>
+        <dd>
+          <span>{{ sintomas.sintomas }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/sintomas', sintomas.idSintomas, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

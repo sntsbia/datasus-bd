@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity Municipio.
+    -->
+    <changeSet id="20220802223828-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="fk_id_uf_id_uf"
+                                 baseTableName="municipio"
+                                 constraintName="fk_municipio__fk_id_uf_id"
+                                 referencedColumnNames="id_uf"
+                                 referencedTableName="uf"/>
+    </changeSet>
+</databaseChangeLog>

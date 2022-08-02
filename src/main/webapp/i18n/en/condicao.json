@@ -1,0 +1,25 @@
+{
+  "datasusBdApp": {
+    "condicao": {
+      "home": {
+        "title": "Condicaos",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Condicao",
+        "createOrEditLabel": "Create or edit a Condicao",
+        "notFound": "No Condicaos found"
+      },
+      "created": "A new Condicao is created with identifier {{ param }}",
+      "updated": "A Condicao is updated with identifier {{ param }}",
+      "deleted": "A Condicao is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Condicao {{ id }}?"
+      },
+      "detail": {
+        "title": "Condicao"
+      },
+      "idCondicao": "Id Condicao",
+      "condicao": "Condicao",
+      "fkIdPessoa": "Fk Id Pessoa"
+    }
+  }
+}

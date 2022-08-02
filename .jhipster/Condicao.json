@@ -1,0 +1,34 @@
+{
+  "applications": "*",
+  "changelogDate": "20220802223826",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "condicao",
+  "fields": [
+    {
+      "fieldName": "idCondicao",
+      "fieldType": "Long",
+      "options": {
+        "id": true
+      }
+    },
+    {
+      "fieldName": "condicao",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Condicao",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "pessoa",
+      "otherEntityRelationshipName": "condicao",
+      "relationshipName": "fkIdPessoa",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

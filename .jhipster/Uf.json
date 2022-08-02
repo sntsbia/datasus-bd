@@ -1,0 +1,36 @@
+{
+  "applications": "*",
+  "changelogDate": "20220802223830",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "uf",
+  "fields": [
+    {
+      "fieldName": "idUf",
+      "fieldType": "Long",
+      "options": {
+        "id": true
+      }
+    },
+    {
+      "fieldName": "codigoIbge",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "estado",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "bandeira",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Uf",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

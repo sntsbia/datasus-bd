@@ -1,0 +1,34 @@
+{
+  "applications": "*",
+  "changelogDate": "20220802223831",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "sintomas",
+  "fields": [
+    {
+      "fieldName": "idSintomas",
+      "fieldType": "Long",
+      "options": {
+        "id": true
+      }
+    },
+    {
+      "fieldName": "sintomas",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Sintomas",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "teste",
+      "otherEntityRelationshipName": "sintomas",
+      "relationshipName": "fkIdTeste",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

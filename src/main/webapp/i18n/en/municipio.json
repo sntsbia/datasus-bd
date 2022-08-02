@@ -1,0 +1,25 @@
+{
+  "datasusBdApp": {
+    "municipio": {
+      "home": {
+        "title": "Municipios",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Municipio",
+        "createOrEditLabel": "Create or edit a Municipio",
+        "notFound": "No Municipios found"
+      },
+      "created": "A new Municipio is created with identifier {{ param }}",
+      "updated": "A Municipio is updated with identifier {{ param }}",
+      "deleted": "A Municipio is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Municipio {{ id }}?"
+      },
+      "detail": {
+        "title": "Municipio"
+      },
+      "idMunicipio": "Id Municipio",
+      "municipio": "Municipio",
+      "fkIdUf": "Fk Id Uf"
+    }
+  }
+}
